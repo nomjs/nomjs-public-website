@@ -1,0 +1,13 @@
+{
+  "theme": "material-design",
+  "title": "nomjs foundation public website",
+  "permalinks": {
+    "post": "/:year/:month/:title/",
+    "page": "/:filename/"
+  },
+  "params": {
+    "Subtitle": "nom is not npm",
+    "AuthorName": "nomjs foundation"
+  },
+  "metaDataFormat": "yaml"
+}

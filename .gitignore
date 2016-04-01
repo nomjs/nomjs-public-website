@@ -1,3 +1,11 @@
 node_modules
 *.iml
 .idea
+
+bower_components
+public
+.tmp
+themes/*/static/css
+themes/*/static/js
+Caddyfile
+vendor/

@@ -1,0 +1,12 @@
+content
+layouts
+static
+themes
+public
+node_modules
+.git
+.gitignore
+.editorconfig
+config.yaml
+gulpfile.js
+package.json
