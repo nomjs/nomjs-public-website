@@ -18,7 +18,7 @@ module.exports = {
   deps: function(themeDir) {
     return () => {
       const deferred = Q.defer();
-      exec('cd '+themeDir+' && bower --allow-root install', (err, stdout, stderr) => {
+      exec('cd '+themeDir+' && sudo -H -u hugouser bower --allow-root install', (err, stdout, stderr) => {
         console.log(stdout);
         console.log(stderr);
         if (err) {
