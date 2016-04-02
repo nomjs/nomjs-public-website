@@ -75,6 +75,11 @@ gulp.task('clean', ['clean-themes'], () => {
 
 // Hugo (without drafts)
 gulp.task('hugo', [activeTheme+'-css', activeTheme+'-js'], (cb) => {
+  exec('whoami', (err, stdout, stderr) => {
+    console.log(stdout);
+    console.log(stderr);
+  });
+
   exec('hugo --baseURL="http://nomjs.com/"', (err, stdout, stderr) => {
     console.log(stdout);
     console.log(stderr);
@@ -84,7 +89,7 @@ gulp.task('hugo', [activeTheme+'-css', activeTheme+'-js'], (cb) => {
 
 // Hugo (with drafts)
 gulp.task('hugo-draft', (cb) => {
-  exec('ugo --verbose -D --baseURL=""', (err, stdout, stderr) => {
+  exec('hugo --verbose -D --baseURL=""', (err, stdout, stderr) => {
     console.log(stdout);
     console.log(stderr);
     gulp.src('public/').pipe(connect.reload());
