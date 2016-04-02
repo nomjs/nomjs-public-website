@@ -1,0 +1,19 @@
+{
+  "name": "material-design",
+  "description": "Material Design Theme",
+  "authors": [
+    "Sean McIntyre <sean@nomjs.org>"
+  ],
+  "homepage": "https://npmjs.org",
+  "private": true,
+  "dependencies": {
+    "bootstrap-sass": "^3.3.6"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

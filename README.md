@@ -10,7 +10,7 @@ To develop interactively, start by building and running the development containe
 
 ```bash
 $ docker build -t nomjs/public-website .
-$ docker run --net=host -v $(pwd):/opt/nomjs/public-website -it --name nomjs.com nomjs/public-website
+$ docker run --net=host -v $(pwd):/opt/nomjs/public-website -it --rm nomjs/public-website
 ```
 
 At this point, you'll see a gulp build start up. It will watch this repository for changes and livereload when you work on themes or content.

@@ -1,13 +1,50 @@
 {
-  "theme": "material-design",
+  "theme": "nomjs-public",
   "title": "nomjs foundation public website",
+  "baseurl": "",
   "permalinks": {
     "post": "/:year/:month/:title/",
     "page": "/:filename/"
   },
   "params": {
+    "name":"nom.js",
+    "description":"our website",
     "Subtitle": "nom is not npm",
-    "AuthorName": "nomjs foundation"
+    "AuthorName": "nomjs foundation",
+    "email": "info@nomjs.com",
+    "navigation": {
+      "brand": "nomjs.com"
+    },
+    "header": {
+      "image":"profile.png",
+      "name": "nom.js",
+      "subtitle":"nom is not npm"
+    },
+    "about": {
+      "title": "about nom.js",
+      "left": "something left",
+      "right": "something right",
+
+      "button": {
+        "text": "something",
+        "link": "//nomjs.com",
+        "icon": "download"
+      }
+    },
+    "footer": {
+      "copyright": "Copyright &copy; 2016 nom.js foundation",
+      "location": {
+        "title": "location",
+        "address": []
+      },
+      "social": {
+        "title": "elsewhere"
+      },
+      "credits": {
+        "title": "nomjs.com",
+        "text": "something"
+      }
+    }
   },
   "metaDataFormat": "yaml"
 }
