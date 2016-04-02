@@ -3,11 +3,20 @@ sudo: required
 services:
   - docker
 
+cache:
+  apt: true
+  directories:
+    - $HOME/.docker
+
 before_install:
+  - if [[ -e ~/.docker/image.tar ]]; then docker load -i ~/docker/image.tar; fi
   - docker build -t nomjs/public-website .
 
 script:
   - docker run --rm -v $(pwd):/opt/nomjs/public-website nomjs/public-website gulp dist
+
+after_success:
+  mkdir -p ~/.docker; docker save nomjs/public-website > ~/.docker/image.tar
 
 deploy:
   provider: azure_web_apps
