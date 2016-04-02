@@ -75,7 +75,7 @@ gulp.task('clean', ['clean-themes'], () => {
 
 // Hugo (without drafts)
 gulp.task('hugo', [activeTheme+'-css', activeTheme+'-js'], (cb) => {
-  exec('sudo -H -u hugouser hugo --baseURL="http://nomjs.com/"', (err, stdout, stderr) => {
+  exec('hugo --baseURL="http://nomjs.com/"', (err, stdout, stderr) => {
     console.log(stdout);
     console.log(stderr);
     cb(err);
@@ -84,7 +84,7 @@ gulp.task('hugo', [activeTheme+'-css', activeTheme+'-js'], (cb) => {
 
 // Hugo (with drafts)
 gulp.task('hugo-draft', (cb) => {
-  exec('sudo -H -u hugouser hugo --verbose -D --baseURL=""', (err, stdout, stderr) => {
+  exec('ugo --verbose -D --baseURL=""', (err, stdout, stderr) => {
     console.log(stdout);
     console.log(stderr);
     gulp.src('public/').pipe(connect.reload());
