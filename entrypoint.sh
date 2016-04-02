@@ -8,6 +8,10 @@ echo "Target UID: ${TARGET_UID}"
 EXISTS=$(getent passwd $TARGET_UID | wc -l)
 echo "User with given UID exists: ${EXISTS}"
 
+# make sure sudo can run without asking for a password
+echo "Configuring sudoers file."
+sudo sed -i 's/\%sudo.*/%sudo   ALL=(ALL:ALL) NOPASSWD: ALL/g' /etc/sudoers
+
 if [ $EXISTS -eq "0" ]; then
   # create user with uid
   echo "Creating Hugo user."
