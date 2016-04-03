@@ -16,20 +16,16 @@ sudo sed -i 's/\%sudo.*/%sudo   ALL=(ALL:ALL) NOPASSWD: ALL/g' /etc/sudoers
 if [ $EXISTS -eq "0" ]; then
   # create user with uid
   echo "Creating Hugo user."
-  useradd -u $TARGET_UID hugouser
+  useradd -u $TARGET_UID -s /bin/bash hugouser
   mkdir /home/hugouser
   chown -R hugouser:hugouser /home/hugouser
   sudo adduser hugouser sudo
 fi
 
-# do some debugging to check ownership
-ls -l /opt/nomjs/public-website
-ls -l /opt/nomjs/public-website/public
-
 # get gulp dependencies so we can use it
 echo "Installing NPM dependencies"
-sudo -H -u "#${TARGET_UID}" bash -c 'npm install'
+sudo -n -u "#${TARGET_UID}" bash -c "npm install"
 
 # run input command
 echo "Running command: $@"
-sudo -H -u "#${TARGET_UID}" $@
+sudo -n -u "#${TARGET_UID}" bash -c "$@"
