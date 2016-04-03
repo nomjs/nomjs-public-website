@@ -1,5 +1,4 @@
-sudo: required
-
+language: nodejs
 services:
   - docker
 
@@ -11,7 +10,6 @@ cache:
 before_install:
   - if [[ -e ~/.docker/image.tar ]]; then docker load -i ~/docker/image.tar; fi
   - docker build -t nomjs/public-website .
-  - chmod ug+rwx $(pwd)
 
 script:
   - docker run --rm -it -v $(pwd):/opt/nomjs/public-website -w /opt/nomjs/public-website nomjs/public-website gulp dist

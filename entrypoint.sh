@@ -24,8 +24,8 @@ fi
 
 # get gulp dependencies so we can use it
 echo "Installing NPM dependencies"
-sudo -n -u "#${TARGET_UID}" bash -c "npm install"
+bash -c "npm install"
 
 # run input command
 echo "Running command: $@"
-sudo -n -u "#${TARGET_UID}" bash -c "$@"
+bash -c "$@"
