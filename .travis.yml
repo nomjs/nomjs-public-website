@@ -12,6 +12,8 @@ before_install:
   - if [[ -e ~/.docker/image.tar ]]; then docker load -i ~/docker/image.tar; fi
   - docker build -t nomjs/public-website .
   - chmod ug+rwx $(pwd)
+  - ls -l ..
+  - ls -l
 
 script:
   - docker run --rm -v $(pwd):/opt/nomjs/public-website nomjs/public-website gulp dist
