@@ -14,7 +14,7 @@ before_install:
   - chmod ug+rwx $(pwd)
 
 script:
-  - sudo docker run --rm -v $(pwd):/opt/nomjs/public-website nomjs/public-website gulp dist
+  - docker run --rm -it -v $(pwd):/opt/nomjs/public-website -w /opt/nomjs/public-website nomjs/public-website gulp dist
 
 after_success:
   mkdir -p ~/.docker; docker save nomjs/public-website > ~/.docker/image.tar
