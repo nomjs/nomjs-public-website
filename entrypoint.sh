@@ -27,4 +27,4 @@ sudo -H -u "#${TARGET_UID}" bash -c "npm install"
 
 # run input command
 echo "Running command: $@"
-sudo -H -u "#${TARGET_UID}" bash -c "$@"
+sudo -H -u "#${TARGET_UID}" $@
