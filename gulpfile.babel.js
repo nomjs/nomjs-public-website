@@ -75,15 +75,10 @@ gulp.task('clean', ['clean-themes'], () => {
 
 // Hugo (without drafts)
 gulp.task('hugo', [activeTheme+'-css', activeTheme+'-js'], (cb) => {
-  exec('whoami', (err, stdout, stderr) => {
-    console.log("whoami: " + stdout);
+  exec('hugo --verbose --baseURL="http://nomjs.com/"', (err, stdout, stderr) => {
+    console.log(stdout);
     console.log(stderr);
-
-    exec('hugo --verbose --baseURL="http://nomjs.com/"', (err, stdout, stderr) => {
-      console.log(stdout);
-      console.log(stderr);
-      cb(err);
-    });
+    cb(err);
   });
 });
 
@@ -153,4 +148,5 @@ gulp.task('serve', () => {
     ['connect','watch']
   );
 });
+
 gulp.task('default', ['serve']);

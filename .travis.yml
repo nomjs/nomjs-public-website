@@ -19,7 +19,7 @@ before_install:
   - docker build -t nomjs/public-website .
 
 script:
-  - docker run --rm -it -v "$(pwd)":/opt/nomjs/public-website --entrypoint="" nomjs/public-website gulp dist
+  - docker run --rm -it -v "$(pwd)":/opt/nomjs/public-website nomjs/public-website gulp clean dist
 
 after_success:
   mkdir -p ~/.docker; docker save nomjs/public-website > ~/.docker/image.tar
