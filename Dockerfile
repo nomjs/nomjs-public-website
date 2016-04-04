@@ -39,8 +39,8 @@ RUN \
 # create script so that we always run hugo with the correct UID
 RUN \
   mv /usr/bin/hugo /usr/bin/hugo_real && \
-  echo "#!/bin/sh" > /usr/bin/hugo && \
-  echo "sudo -H -u \"#1000\" hugo_real \$*" >> /usr/bin/hugo && \
+  echo "#!/bin/bash" > /usr/bin/hugo && \
+  echo "sudo -H -u \"#\${UID}\" hugo_real \$*" >> /usr/bin/hugo && \
   chmod a+x /usr/bin/hugo
 
 ADD entrypoint.sh /entrypoint.sh

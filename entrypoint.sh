@@ -1,8 +1,7 @@
 #!/bin/bash
 
 # capture the uid of this folder, so that everything we do will belong to that user
-TARGET_UID=$(stat -c "%u" .)
-export TARGET_UID
+export TARGET_UID=$(stat -c "%u" .)
 echo "Target UID: ${TARGET_UID}"
 
 # add a user with that uid if they don't exist already
@@ -24,8 +23,8 @@ fi
 
 # get gulp dependencies so we can use it
 echo "Installing NPM dependencies"
-bash -c "npm install"
+sudo -H -u "#${TARGET_UID}" bash -c "npm install"
 
 # run input command
 echo "Running command: $@"
-bash -c "$@"
+sudo -H -u "#${TARGET_UID}" bash -c "$@"
