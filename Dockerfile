@@ -36,13 +36,6 @@ RUN \
   rm hugo.deb && \
   apt-get clean
 
-# create script so that we always run hugo with the correct UID
-RUN \
-  mv /usr/bin/hugo /usr/bin/hugo_real && \
-  echo "#!/bin/bash" > /usr/bin/hugo && \
-  echo "sudo -H -u \"#\${UID}\" hugo_real \$*" >> /usr/bin/hugo && \
-  chmod a+x /usr/bin/hugo
-
 ADD entrypoint.sh /entrypoint.sh
 
 RUN chmod +x /entrypoint.sh
