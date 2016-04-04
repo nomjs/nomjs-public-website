@@ -25,6 +25,7 @@ after_success:
   - mkdir -p ~/.docker; docker save nomjs/public-website > ~/.docker/image.tar
 
 deploy:
+  skip_cleanup: true
   provider: script
   script: ./scripts/deploy.sh
   verbose: true
