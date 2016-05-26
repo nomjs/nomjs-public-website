@@ -4,7 +4,7 @@
 #
 # Usage:
 # $ docker build -t nomjs/public-website .
-# $ docker run --net=host -v $(pwd):/opt/nomjs/public-website -it --rm nomjs.com nomjs/public-website
+# $ docker run --net=host -v $(pwd):/opt/nomjs/public-website -it --rm nomjs/public-website
 #
 # Windows users:
 # $ docker run --net=host -v //c/Users/your-username-here/workspace/nomjs-public-website:/opt/nomjs/public-website -it --rm nomjs/public-website
