@@ -9,8 +9,8 @@ You'll need to install [Docker](https://www.docker.com/)
 To develop interactively, start by building and running the development container (you only have to do this once):
 
 ```bash
-$ docker build -t nomjs/public-website .
-$ docker run --net=host -v $(pwd):/opt/nomjs/public-website -it --rm nomjs/public-website
+$ docker build -t nomjs.com/public-website .
+$ docker run -v $(pwd):/opt/nomjs/public-website -p 8080:8080 -p 35729:35729 -it --rm nomjs.com/public-website
 ```
 
 At this point, you'll see a gulp build start up. It will watch this repository for changes and livereload when you work on themes or content.

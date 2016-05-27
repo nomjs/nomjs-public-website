@@ -58,7 +58,10 @@ module.exports = {
   css: function(themeDir, cachebust) {
     return () => {
       return gulp.src(path.join(themeDir, 'src/scss/style.scss'))
-        .pipe(sass({outputStyle: 'compressed'}))
+        .pipe(sass({
+          includePaths: require('node-bourbon').with(require('node-neat').includePaths),
+          outputStyle: 'compressed'}
+        ))
         .pipe(autoprefixer({
     			browsers: ['last 2 versions'],
     			cascade: false
@@ -71,7 +74,8 @@ module.exports = {
   cssDev: function(themeDir) {
     return () => {
       return gulp.src(path.join(themeDir, 'src/scss/style.scss'))
-        .pipe(sass().on('error', sass.logError))
+        .pipe(sass({includePaths: require('node-bourbon').with(require('node-neat').includePaths)})
+          .on('error', sass.logError))
         .pipe(gulp.dest(path.join(themeDir, 'static/css')));
     };
   },

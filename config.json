@@ -1,7 +1,7 @@
 {
   "theme": "nomjs-public",
   "title": "nomjs foundation public website",
-  "baseurl": "",
+  "baseurl": "/",
   "permalinks": {
     "post": "/:year/:month/:title/",
     "page": "/:filename/"
