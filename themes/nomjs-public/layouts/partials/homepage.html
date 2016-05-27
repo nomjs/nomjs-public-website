@@ -1,17 +1,11 @@
-<section class="success">
-  {{ range first 1 (where .Data.Pages "Section" "home") }}
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 text-center">
-          <h2>{{ .Title }}</h2>
-          <hr class="star-light">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-12">
-          {{ .Content }}
-        </div>
-      </div>
-    </div>
-    {{ end }}
+{{ range first 1 (where .Data.Pages "Section" "home") }}
+<section>
+  <article>
+    <h2>{{ .Title }}</h2>
+    <hr class="star-light">
+  </article>
+  <article>
+    {{ .Content }}
+  </article>
 </section>
+{{ end }}

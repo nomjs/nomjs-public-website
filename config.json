@@ -15,11 +15,6 @@
     "navigation": {
       "brand": "nomjs.com"
     },
-    "header": {
-      "image":"profile.png",
-      "name": "nom.js",
-      "subtitle":"nom is not npm"
-    },
     "about": {
       "title": "about nomjs.com",
       "left": "something left",
